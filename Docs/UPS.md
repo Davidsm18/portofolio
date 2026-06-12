@@ -1,0 +1,1 @@
+In één zin: Ik bouw software niet als schoolopdracht, maar om er echte producten mee te lanceren.
