@@ -28,7 +28,6 @@
   transform: scale(1.1);
 }
 
-/* Violette gradient als er (nog) geen afbeelding is */
 .project-placeholder {
   width: 100%;
   height: 100%;
@@ -67,7 +66,6 @@
   text-decoration: underline;
 }
 
-/* Featured-kaart: volle breedte, en horizontaal op desktop */
 .project-card.featured {
   grid-column: 1 / -1;
 }

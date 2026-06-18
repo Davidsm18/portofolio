@@ -6,8 +6,11 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="container nav-inner">
-        <a href="#home" className="nav-brand">David Mateman</a>
+      <div className= "nav-inner">
+        <a href="#home" className="nav-brand">
+          <span className="brand-prompt">&gt;<span className="brand-cursor">_</span></span>
+          David <span className="brand-accent-part">Mateman</span>
+        </a>
         
         <button 
             className="nav-toggle"
@@ -18,9 +21,10 @@ function Navbar() {
               ☰
             </button>
         <div className={open ? "nav-links open" : "nav-links"}>
+          <a href="#home" onClick={() => setOpen(false)}>Home</a>
           <a href="#projecten" onClick={() => setOpen(false)}>Projecten</a>
           <a href="#about" onClick={() => setOpen(false)}>About</a>
-          <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
+          <a className="contact-link" href="#contact" onClick={() => setOpen(false)}>Contact</a>
         </div>
       </div>
     </nav>

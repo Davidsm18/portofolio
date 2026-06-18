@@ -11,7 +11,6 @@ function About () {
     return (
         <div className="container about-inner">
             <div className="about-image">
-                {/*foto van mezelf*/}
             </div>
 
             <div className="about-text">

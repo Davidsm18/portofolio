@@ -3,7 +3,6 @@
   overflow: hidden;
 }
 
-/* Zachte violette gloed op de achtergrond */
 .hero-glow {
   position: absolute;
   top: 50%;
@@ -31,7 +30,6 @@
   flex: 1;
 }
 
-/* Status-pill */
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -86,7 +84,6 @@
   flex-wrap: wrap;
 }
 
-/* Uitgeknipte foto met violette gloed erachter (3D-look) */
 .hero-image {
   position: relative;
   flex-shrink: 0;
@@ -94,7 +91,6 @@
   justify-content: center;
 }
 
-/* Radiale violette gloed achter de foto */
 .hero-image::before {
   content: "";
   position: absolute;
@@ -115,11 +111,9 @@
   width: 420px;
   height: auto;
   object-fit: contain;
-  /* drop-shadow volgt de omtrek van een transparante PNG */
   filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.45));
 }
 
-/* Mobiel: onder elkaar, gecentreerd */
 @media (max-width: 860px) {
   .hero-inner {
     flex-direction: column-reverse;
