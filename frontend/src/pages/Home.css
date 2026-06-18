@@ -1,0 +1,146 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Zachte violette gloed op de achtergrond */
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background-color: rgba(139, 92, 246, 0.10);
+  filter: blur(120px);
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  min-height: 70vh;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+/* Status-pill */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.03);
+  margin-bottom: 32px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: var(--accent);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero-title {
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.hero-title .accent {
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Uitgeknipte foto met violette gloed erachter (3D-look) */
+.hero-image {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Radiale violette gloed achter de foto */
+.hero-image::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.40) 0%, rgba(139, 92, 246, 0) 70%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-image img {
+  position: relative;
+  z-index: 1;
+  width: 420px;
+  height: auto;
+  object-fit: contain;
+  /* drop-shadow volgt de omtrek van een transparante PNG */
+  filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.45));
+}
+
+/* Mobiel: onder elkaar, gecentreerd */
+@media (max-width: 860px) {
+  .hero-inner {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 32px;
+    padding-top: 32px;
+  }
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-title {
+    font-size: 34px;
+  }
+  .hero-image img {
+    width: 300px;
+  }
+  .hero-image::before {
+    width: 320px;
+    height: 320px;
+  }
+}

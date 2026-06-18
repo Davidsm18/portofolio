@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STRATOS.DEV | ICT Student &amp; Ondernemer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0F0F11;
+            scroll-behavior: smooth;
+        }
+        .violet-glow {
+            box-shadow: 0 0 80px 0px rgba(139, 92, 246, 0.15);
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 40px 0px rgba(139, 92, 246, 0.2);
+            border-color: #8B5CF6;
+        }
+        .skill-gradient {
+            background: linear-gradient(90deg, #8B5CF6 0%, #6D3BD7 100%);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F0F11;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8B5CF6;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#25005a",
+                        "outline": "#958ea0",
+                        "outline-variant": "#494454",
+                        "inverse-on-surface": "#322f39",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-tertiary": "#482900",
+                        "surface-container-low": "#1d1a23",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "on-error": "#690005",
+                        "primary": "#d0bcff",
+                        "on-surface": "#e7e0ed",
+                        "on-secondary-container": "#c9aeff",
+                        "on-secondary-fixed-variant": "#5a00c6",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdcbb",
+                        "on-primary-fixed": "#23005c",
+                        "secondary": "#d2bbff",
+                        "tertiary": "#ffb869",
+                        "primary-container": "#a078ff",
+                        "tertiary-container": "#ca801e",
+                        "inverse-primary": "#6d3bd7",
+                        "surface-container-highest": "#37333d",
+                        "secondary-container": "#6001d1",
+                        "background": "#15121b",
+                        "error-container": "#93000a",
+                        "on-background": "#e7e0ed",
+                        "on-tertiary-fixed": "#2c1700",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#e9ddff",
+                        "on-surface-variant": "#cbc3d7",
+                        "on-primary": "#3c0091",
+                        "surface-dim": "#15121b",
+                        "surface-container-high": "#2c2832",
+                        "on-primary-fixed-variant": "#5516be",
+                        "surface-container": "#211e27",
+                        "on-tertiary-container": "#3f2300",
+                        "tertiary-fixed-dim": "#ffb869",
+                        "on-secondary": "#3f008e",
+                        "surface-container-lowest": "#0f0d15",
+                        "surface-variant": "#37333d",
+                        "surface-tint": "#d0bcff",
+                        "surface": "#15121b",
+                        "inverse-surface": "#e7e0ed",
+                        "on-primary-container": "#340080",
+                        "surface-bright": "#3b3742",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "secondary-fixed": "#eaddff",
+                        "violet-accent": "#8B5CF6",
+                        "violet-hover": "#7C3AED"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "80px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-sm": ["Geist"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "code": ["Geist"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "code": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="text-on-background">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/30">
+<nav class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+<span class="font-headline-lg text-headline-lg text-primary tracking-tighter">STRATOS.DEV</span>
+</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md transition-all" href="#home">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#projects">Projects</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#about">About</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#contact">Contact</a>
+</div>
+<a class="px-6 py-2 bg-violet-accent hover:bg-violet-hover text-white rounded-xl transition-all font-label-sm text-label-sm active:scale-95" href="#contact">
+                Contact
+            </a>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[707px] flex items-center justify-center overflow-hidden px-margin-mobile" id="home">
+<div class="absolute inset-0 z-0 pointer-events-none">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-accent/10 blur-[120px] rounded-full"></div>
+</div>
+<div class="max-w-container-max mx-auto z-10 flex flex-col lg:flex-row items-center gap-stack-lg">
+<div class="lg:w-1/2 text-center lg:text-left order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-highest/50 border border-outline-variant/30 mb-stack-lg">
+<span class="w-2 h-2 rounded-full bg-violet-accent animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">AI-FIRST WORKFLOW</span>
+</div>
+<h1 class="font-headline-xl text-[40px] md:text-headline-xl text-on-background mb-stack-md">
+      Ik ben <span class="text-primary">Stratos</span>, ICT student &amp; ondernemer
+    </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto lg:mx-0 mb-stack-lg">
+      Ik bouw webprojecten met AI om de grenzen van efficiëntie en innovatie te verleggen. Van concept tot schaalbare applicatie.
+    </p>
+<div class="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4">
+<a class="px-8 py-4 bg-violet-accent hover:bg-violet-hover text-white rounded-xl font-body-md text-body-md transition-all hover:scale-105 active:scale-95 violet-glow" href="#projects">
+        Bekijk projecten
+      </a>
+<a class="px-8 py-4 bg-transparent border border-outline-variant/30 text-on-surface hover:border-violet-accent transition-all rounded-xl font-body-md text-body-md" href="#about">
+        Meer over mij
+      </a>
+</div>
+</div>
+<div class="lg:w-1/2 flex justify-center order-1 lg:order-2">
+<div class="relative group">
+<div class="absolute -inset-1 bg-violet-accent/30 rounded-full blur-xl group-hover:bg-violet-accent/50 transition-all duration-500"></div>
+<div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-violet-accent/30 violet-glow">
+<img alt="Stratos - ICT Entrepreneur" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFcitwJv2ylk3QzsvsEqg035PGrEwvXmGaG32Vnr_Fmzf2EITUBHPEZ6qeCy7HfEFP2pKpidfxPtPKNc9PmsyDz9So6gznBgHsfAdkzpns3KgQ2nUXi9IOv6SaSEM3eY-_HSQnu5ZYn62vwg0xBN5ROeQS7QE-3fNjOEBXEBaXh87PxN6GQmI_r_Vv6oWJvCUffyv__p_IxoYnr_rq4Sdo_oeP-eMpHV48HPFHvjZaG9eOB_BAgEHEwkSUUtC3W3HYNiH3RNufNOU"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto" id="projects">
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-2">Geselecteerde Projecten</h2>
+<div class="w-20 h-1 bg-violet-accent rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Featured Card -->
+<div class="md:col-span-2 group relative bg-[#18181B] border border-[#27272A] rounded-xl overflow-hidden transition-all duration-500 hover:translate-y-[-4px] hover-glow">
+<div class="flex flex-col lg:flex-row">
+<div class="lg:w-1/2 h-64 lg:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A futuristic AI dashboard interface shown on a high-resolution tablet screen, featuring deep violet and obsidian color tones. The interface displays complex data visualizations with glowing neon accents and minimalist typography. The lighting is low-key with a soft atmospheric violet haze, emphasizing a high-tech entrepreneurial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEKvAjJ8fR-tJY6_1zJx3qIHhybz-lgw-zmWXMnHICvtZ7PvydHUk1mwXuTDLQVlhE-V7UFz0hhUWxjcgkTu0OzcXW6qZ83n-WvHOAhz3NzQFjuUkVIKuFtEEVifRAG_zwUXlwa8Yp5RhrxBMzNeovtjYWw0Gwq6QijRPjWI1-WRvBXVtWNchrP8V-Zs9weNo6lXmA6uz4Uq3XZMA6nlUk85cclvDwn6S6z8trJ4xBgKqiq1Z9SU4ivv7DVPwfYbfWqThCbZo9qDQ"/>
+</div>
+<div class="lg:w-1/2 p-stack-lg flex flex-col justify-center">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 bg-violet-accent/20 text-violet-accent text-[10px] font-bold tracking-widest uppercase rounded">FEATURED</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold tracking-widest uppercase rounded">AI-AGENT</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-background mb-4">Nexus AI Intelligence Hub</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                Een gecentraliseerd platform voor AI-agent orchestratie. Gebouwd met Next.js en Python om complexe workflows te automatiseren voor MKB-bedrijven.
+                            </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-label-sm text-label-sm px-3 py-1 bg-surface-container-highest text-on-surface border border-outline-variant/30 rounded-lg">Next.js</span>
+<span class="font-label-sm text-label-sm px-3 py-1 bg-surface-container-highest text-on-surface border border-outline-variant/30 rounded-lg">Python</span>
+<span class="font-label-sm text-label-sm px-3 py-1 bg-surface-container-highest text-on-surface border border-outline-variant/30 rounded-lg">FastAPI</span>
+<span class="font-label-sm text-label-sm px-3 py-1 bg-surface-container-highest text-on-surface border border-outline-variant/30 rounded-lg">OpenAI API</span>
+</div>
+<a class="inline-flex items-center gap-2 text-violet-accent font-bold group/link" href="#">
+                                Bekijk project <span class="material-symbols-outlined transition-transform group-hover/link:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Regular Card 1 -->
+<div class="bg-[#18181B] border border-[#27272A] rounded-xl overflow-hidden transition-all duration-500 hover:translate-y-[-4px] hover-glow group">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A minimalist e-commerce web application interface for a modern lifestyle brand. The design uses clean white space, sharp violet buttons, and elegant dark containers. Atmospheric product photography of minimalist tech gadgets is showcased. The aesthetic is professional, sleek, and highly functional for an entrepreneur's portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlx2TZS2zbNvWpvqCxTYG8aNhVTDIqrkniWjxaZVsx5KbXc6B9QUN6PR8gWEd-A4WT4PjoFDWHDNy6O1KM-uZvKTisVZp--N4fsOO_ap1UGSocrDECAnxVQMCCxZWSEBqxTkO7Lu-ih0VDSSCBcNl7k0LvVVjnD7cOSS87NnTxQGrWSOKYKCiiLvnuW1XPWYeARtd3_TMI3ODXNYccn6q3jIZ7cK8Rdzz_st3ADtpV006771lTKo6Rk_GErYjacifn3X9rmaULtxI"/>
+</div>
+<div class="p-stack-md">
+<h3 class="font-headline-lg text-2xl text-on-background mb-2">Minimalist E-comm</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                            High-performance webshop met headless CMS integratie en Stripe betalingen.
+                        </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="font-label-sm text-label-sm px-2 py-1 bg-surface-container-highest text-on-surface rounded-lg">React</span>
+<span class="font-label-sm text-label-sm px-2 py-1 bg-surface-container-highest text-on-surface rounded-lg">Sanity</span>
+</div>
+<a class="text-violet-accent font-bold" href="#">Bekijk</a>
+</div>
+</div>
+<!-- Regular Card 2 -->
+<div class="bg-[#18181B] border border-[#27272A] rounded-xl overflow-hidden transition-all duration-500 hover:translate-y-[-4px] hover-glow group">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional cloud infrastructure management dashboard showing real-time server health and deployment pipelines. The screen features dark mode aesthetics with violet and blue gradient status bars. Minimalist line graphs and server nodes are interconnected, representing a robust technical architecture. The overall mood is focused and technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUzqhNBkZIG-UxpxzEQ_F8JYkrMFVm9JxTe3eKr1DbJFjfXJBYiXlF_ks8gfN3yBMMFYP5PZY5Y32JNgRuRgqYfNxoS8sCpQl2D7aJEvzCwE_5D35OW7YagFpPeTle6lN-TA0AqdIIxw3bCx3GzYD7tEV01YxRcak6E9lBBpxtsIOVww_G2p_voM7aR0pT84ngQCsfWyZHez8HpxOEiFtNvu63x2AlM0BRTRwW-2iptHnC2yfPrjA06-zpQJ-_9w3c-hjFHWChLIQ"/>
+</div>
+<div class="p-stack-md">
+<h3 class="font-headline-lg text-2xl text-on-background mb-2">CloudOps Automator</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                            Infrastructure-as-code tool voor snelle deployment op AWS en Vercel.
+                        </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="font-label-sm text-label-sm px-2 py-1 bg-surface-container-highest text-on-surface rounded-lg">AWS</span>
+<span class="font-label-sm text-label-sm px-2 py-1 bg-surface-container-highest text-on-surface rounded-lg">Node.js</span>
+</div>
+<a class="text-violet-accent font-bold" href="#">Bekijk</a>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap bg-surface-container-lowest" id="about">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 lg:grid-cols-12 gap-stack-lg items-center">
+<div class="lg:col-span-5 relative">
+<div class="aspect-square rounded-xl overflow-hidden border-2 border-violet-accent/30 relative z-10">
+<img class="w-full h-full object-cover" data-alt="A portrait of a young, confident professional in a modern home office setting. The lighting is atmospheric with a soft violet key light. In the background, a high-end computer setup with a mechanical keyboard and code visible on a monitor is slightly blurred. The individual has a friendly but professional expression, wearing a clean, dark minimalist hoodie." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKTontHLtd9DORAmD8d09WKp1hDq0lQznhzvSbichbbqIvVP_Vzb3S5ivEP9huuZy6L1YmoJz0L0wE-abD-guT1F6qE21QMWNI7bpoqOhT3JunALd-pwYEeiDKfWPP16v62Pqn_ySwhtj4smXn7ygSu3VhNaYMewXL-mNISN_XBzQy0UXHnSXq7NkXxnul398P3HWAxHdu1tMNO9a1BPrK3Ou6LX3dkXQ9xVVxcjH4FJRYV-igEeUs4Fbjue09F_j-caJXaXLd3f4"/>
+</div>
+<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-violet-accent/20 blur-3xl -z-0"></div>
+</div>
+<div class="lg:col-span-7">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-stack-md">Gedreven door innovatie en AI-gestuurde workflows</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md leading-relaxed">
+                        Als ICT-student aan het begin van mijn carrière en ondernemer van nature, zie ik technologie niet als een doel op zich, maar als een hefboom. Ik heb me gespecialiseerd in het combineren van traditioneel software engineering met moderne AI-tools om sneller, slimmer en met meer precisie te bouwen.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg leading-relaxed">
+                        Mijn focus ligt op het bouwen van digitale producten die een meetbare impact hebben. Of het nu gaat om een complexe SaaS-oplossing of een gestroomlijnde portfolio-website, ik breng een ondernemende mindset naar elke regel code.
+                    </p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest">Stack</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface rounded font-code text-code">React</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface rounded font-code text-code">Next.js</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest">Backend</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface rounded font-code text-code">Python</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface rounded font-code text-code">PostgreSQL</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest">AI Tools</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface rounded font-code text-code">LangChain</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface rounded font-code text-code">PyTorch</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest">Cloud</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface rounded font-code text-code">AWS</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface rounded font-code text-code">Docker</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap px-margin-mobile md:px-gutter" id="contact">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-stack-md">Laten we samenwerken</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg max-w-md">
+                            Heb je een project in gedachten of wil je gewoon even sparren over de mogelijkheden van AI? Stuur me een berichtje en ik kom zo snel mogelijk bij je terug.
+                        </p>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+</div>
+<span>hello@stratos.dev</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+</div>
+<span>Amsterdam, Nederland</span>
+</div>
+</div>
+</div>
+<form class="bg-[#18181B] p-8 rounded-xl border border-[#27272A] flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="name">Naam</label>
+<input class="bg-[#0F0F11] border-[#27272A] rounded-lg p-3 text-on-surface focus:border-violet-accent focus:ring-1 focus:ring-violet-accent outline-none transition-all" id="name" placeholder="Je naam" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="email">E-mail</label>
+<input class="bg-[#0F0F11] border-[#27272A] rounded-lg p-3 text-on-surface focus:border-violet-accent focus:ring-1 focus:ring-violet-accent outline-none transition-all" id="email" placeholder="je@email.com" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="message">Bericht</label>
+<textarea class="bg-[#0F0F11] border-[#27272A] rounded-lg p-3 text-on-surface focus:border-violet-accent focus:ring-1 focus:ring-violet-accent outline-none transition-all" id="message" placeholder="Vertel me over je project..." rows="4"></textarea>
+</div>
+<button class="w-full py-4 bg-violet-accent hover:bg-violet-hover text-white rounded-xl font-bold transition-all active:scale-95 flex items-center justify-center gap-2" type="submit">
+                            Verzend bericht
+                            <span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-surface-container-lowest py-12 border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row justify-between items-center gap-stack-lg">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-headline-lg text-headline-lg text-primary">STRATOS.DEV</span>
+<p class="font-body-md text-body-md text-outline">© 2024 ICT Entrepreneur Portfolio. Built with technical precision.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-outline hover:text-secondary transition-all active:translate-y-[-2px] flex items-center gap-1" href="#">
+                    LinkedIn
+                </a>
+<a class="text-outline hover:text-secondary transition-all active:translate-y-[-2px] flex items-center gap-1" href="#">
+                    GitHub
+                </a>
+<a class="text-outline hover:text-secondary transition-all active:translate-y-[-2px] flex items-center gap-1" href="#">
+                    Twitter
+                </a>
+</div>
+<div class="flex gap-stack-md">
+<a class="text-outline hover:text-primary transition-all" href="#home">Home</a>
+<a class="text-outline hover:text-primary transition-all" href="#projects">Projects</a>
+<a class="text-outline hover:text-primary transition-all" href="#contact">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and scroll effects
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Sticky Navbar background shift on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-background/95', 'shadow-xl');
+                header.classList.remove('bg-background/80');
+            } else {
+                header.classList.remove('bg-background/95', 'shadow-xl');
+                header.classList.add('bg-background/80');
+            }
+        });
+
+        // Reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body></html>
