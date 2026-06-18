@@ -11,14 +11,14 @@ function About () {
     return (
         <div className="container about-inner">
             <div className="about-image">
-                {/* Zet hier later je eigen foto: <img src={...} alt="David Mateman" /> */}
+                {/*foto van mezelf*/}
             </div>
 
             <div className="about-text">
                 <h2 className="section-title">Gedreven door innovatie en AI-gestuurde workflows</h2>
 
                 <p className="about-p">
-                    Als ICT-student en ondernemen van nature zie ik technologie niet als doel,
+                    Als ICT-student en ondernemer van nature zie ik technologie niet als doel,
                     maar als hefboom. Ik combineer software engineering met moderne AI-tools om
                     sneller, slimmer en met meer precisie te bouwen.
                 </p>
