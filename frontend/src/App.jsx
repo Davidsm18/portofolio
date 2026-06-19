@@ -1,23 +1,14 @@
-import Navbar from "./components/Navbar"
-import Home from "./pages/Home"
-import Contact from "./pages/Contact"
-import About from "./pages/About"
-import Projects from "./pages/Projects"
-import Footer from "./components/Footer"
-
+import { Routes, Route } from 'react-router-dom'
+import Portfolio from './pages/Portfolio'
+import Admin from './pages/Admin'
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <section id="home"><Home /></section>
-      <section id="projecten"><Projects /></section>
-      <section id="about"><About /></section>
-      <section id="contact"><Contact /></section>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Portfolio />} />
+      <Route path="/admin" element={<Admin />} />
+    </Routes>
   )
 }
 
 export default App
- 

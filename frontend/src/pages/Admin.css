@@ -1,0 +1,139 @@
+/* Volledige pagina-achtergrond: donker met violette gloed (sluit aan op de login) */
+.admin-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(139, 92, 246, 0.28), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(91, 33, 182, 0.20), transparent 40%),
+    #0F0F11;
+}
+
+.admin {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+/* Inlogscherm: box exact in het midden van de pagina */
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* horizontaal centreren */
+  justify-content: center;  /* verticaal centreren */
+}
+
+.admin-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-sub {
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+/* Blokken per sectie */
+.admin-section {
+  margin-bottom: 56px;
+}
+
+.admin-section h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+/* Kaart om een formulier/rij heen */
+.admin-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  min-width: 400px;
+  margin: 0 auto 16px;
+}
+
+/* Formulier-velden */
+.admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.admin-field label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.admin-field input,
+.admin-field textarea {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+}
+
+.admin-field input:focus,
+.admin-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.admin-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Kleine knoppen voor admin */
+.admin-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background-color: transparent;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.admin-btn:hover {
+  border-color: var(--accent);
+}
+
+.admin-btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.admin-btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.admin-btn-danger:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.admin-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  color: var(--text-muted);
+}
