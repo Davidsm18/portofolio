@@ -132,10 +132,13 @@
     font-size: 34px;
   }
   .hero-image img {
-    width: 300px;
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 9999px;
   }
   .hero-image::before {
-    width: 320px;
-    height: 320px;
+    width: 260px;
+    height: 260px;
   }
 }

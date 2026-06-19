@@ -115,6 +115,14 @@
         display: block;
     }
 
+    .nav-brand {
+        font-size: 18px;
+    }
+
+    .nav-inner {
+        padding: 0 20px;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
