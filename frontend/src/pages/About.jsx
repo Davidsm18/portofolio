@@ -6,12 +6,12 @@ function About() {
   const [skills, setSkills] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/about')
+    fetch('http://localhost:3002/api/about')
       .then((res) => res.json())
       .then((data) => setAbout(data))
       .catch((err) => console.error('Kon about niet laden:', err))
 
-    fetch('http://localhost:3001/api/skills')
+    fetch('http://localhost:3002/api/skills')
       .then((res) => res.json())
       .then((data) => setSkills(data))
       .catch((err) => console.error('Kon skills niet laden:', err))

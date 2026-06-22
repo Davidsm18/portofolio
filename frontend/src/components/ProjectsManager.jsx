@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { authHeaders } from '../auth'
 
-const API = 'http://localhost:3001/api'
-const emptyForm = { title: '', description: '', tech: '', link: '', featured: false }
+const API = 'http://localhost:3002/api'
+const emptyForm = { title: '', description: '', tech: '', link: '', featured: false, image: '' }
 
 function ProjectsManager() {
   const [projects, setProjects] = useState([])
@@ -26,6 +26,21 @@ function ProjectsManager() {
     setForm({ ...form, [name]: type === 'checkbox' ? checked : value })
   }
 
+  // Afbeelding uploaden naar de backend → krijg een URL terug, zet die in het formulier
+  function handleFile(e) {
+    const file = e.target.files[0]
+    if (!file) return
+    const data = new FormData()
+    data.append('image', file)
+    fetch(`${API}/upload`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${localStorage.getItem('cms_token') || ''}` },
+      body: data, // FormData: GEEN Content-Type zelf zetten, de browser doet dat
+    })
+      .then((res) => res.json())
+      .then((result) => setForm((f) => ({ ...f, image: result.url })))
+  }
+
   // Toevoegen of bewerken (afhankelijk van editingId)
   function handleSubmit(e) {
     e.preventDefault()
@@ -35,6 +50,7 @@ function ProjectsManager() {
       tech: form.tech.split(',').map((t) => t.trim()).filter(Boolean),
       link: form.link,
       featured: form.featured,
+      image: form.image,
     }
 
     const url = editingId ? `${API}/projects/${editingId}` : `${API}/projects`
@@ -60,6 +76,7 @@ function ProjectsManager() {
       tech: project.tech.join(', '),
       link: project.link,
       featured: project.featured,
+      image: project.image || '',
     })
   }
 
@@ -68,22 +85,14 @@ function ProjectsManager() {
     fetch(`${API}/projects/${id}`, { method: 'DELETE', headers: authHeaders() }).then(loadProjects)
   }
 
-  return (
-    <section className="admin-section">
-      <h2>Projecten</h2>
+  function cancelEdit() {
+    setForm(emptyForm)
+    setEditingId(null)
+  }
 
-      {projects.map((project) => (
-        <div className="admin-card" key={project.id}>
-          <div className="admin-row">
-            <strong>{project.title}{project.featured ? ' ⭐' : ''}</strong>
-            <div className="admin-actions">
-              <button className="admin-btn" onClick={() => handleEdit(project)}>Bewerk</button>
-              <button className="admin-btn admin-btn-danger" onClick={() => handleDelete(project.id)}>Verwijder</button>
-            </div>
-          </div>
-        </div>
-      ))}
-
+  // Het formulier — hergebruikt voor inline-bewerken én voor 'nieuw project'
+  function renderForm() {
+    return (
       <form className="admin-card" onSubmit={handleSubmit}>
         <h3>{editingId ? 'Project bewerken' : 'Nieuw project'}</h3>
 
@@ -107,6 +116,14 @@ function ProjectsManager() {
           <input name="link" value={form.link} onChange={handleChange} placeholder="#" />
         </div>
 
+        <div className="admin-field">
+          <label>Afbeelding</label>
+          <input type="file" accept="image/*" onChange={handleFile} />
+          {form.image && (
+            <img src={form.image} alt="" style={{ marginTop: 8, maxWidth: 160, borderRadius: 8 }} />
+          )}
+        </div>
+
         <label className="admin-checkbox">
           <input type="checkbox" name="featured" checked={form.featured} onChange={handleChange} />
           Uitgelicht (featured)
@@ -116,17 +133,38 @@ function ProjectsManager() {
           <button type="submit" className="admin-btn admin-btn-primary">
             {editingId ? 'Opslaan' : 'Toevoegen'}
           </button>
-          {editingId && (
-            <button
-              type="button"
-              className="admin-btn"
-              onClick={() => { setForm(emptyForm); setEditingId(null) }}
-            >
-              Annuleer
-            </button>
-          )}
         </div>
       </form>
+    )
+  }
+
+  return (
+    <section className="admin-section">
+      <h2>Projecten</h2>
+
+      {projects.map((project) => (
+        <div key={project.id}>
+          <div className="admin-card">
+            <div className="admin-row">
+              <strong>{project.title}{project.featured ? ' ⭐' : ''}</strong>
+              <div className="admin-actions">
+                {editingId === project.id ? (
+                  <button className="admin-btn" onClick={cancelEdit}>Annuleren</button>
+                ) : (
+                  <button className="admin-btn" onClick={() => handleEdit(project)}>Bewerk</button>
+                )}
+                <button className="admin-btn admin-btn-danger" onClick={() => handleDelete(project.id)}>Verwijder</button>
+              </div>
+            </div>
+          </div>
+
+          {/* Inline bewerk-formulier, direct onder dit project */}
+          {editingId === project.id && renderForm()}
+        </div>
+      ))}
+
+      {/* 'Nieuw project'-formulier onderaan, alleen als je niet aan het bewerken bent */}
+      {!editingId && renderForm()}
     </section>
   )
 }

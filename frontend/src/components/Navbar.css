@@ -44,6 +44,10 @@
     text-decoration: none;
 }
 
+.nav-brand:hover {
+    color: var(--accent);
+}
+
 .brand-prompt {
     font-family: var(--font-mono);
     color: var(--accent);

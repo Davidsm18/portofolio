@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Login.css'
 
-const API = 'http://localhost:3001/api'
+const API = 'http://localhost:3002/api'
 
 function Login({ onSuccess }) {
   const [password, setPassword] = useState('')

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { authHeaders } from '../auth'
 
-const API = 'http://localhost:3001/api'
+const API = 'http://localhost:3002/api'
 const emptyForm = { label: '', items: '' }
 
 function SkillsManager() {
@@ -55,22 +55,14 @@ function SkillsManager() {
     fetch(`${API}/skills/${id}`, { method: 'DELETE', headers: authHeaders() }).then(loadSkills)
   }
 
-  return (
-    <section className="admin-section">
-      <h2>Skills</h2>
+  function cancelEdit() {
+    setForm(emptyForm)
+    setEditingId(null)
+  }
 
-      {skills.map((skill) => (
-        <div className="admin-card" key={skill.id}>
-          <div className="admin-row">
-            <strong>{skill.label}: {skill.items.join(', ')}</strong>
-            <div className="admin-actions">
-              <button className="admin-btn" onClick={() => handleEdit(skill)}>Bewerk</button>
-              <button className="admin-btn admin-btn-danger" onClick={() => handleDelete(skill.id)}>Verwijder</button>
-            </div>
-          </div>
-        </div>
-      ))}
-
+  // Het formulier — hergebruikt voor inline-bewerken én voor 'nieuwe skill-groep'
+  function renderForm() {
+    return (
       <form className="admin-card" onSubmit={handleSubmit}>
         <h3>{editingId ? 'Skill-groep bewerken' : 'Nieuwe skill-groep'}</h3>
 
@@ -88,13 +80,38 @@ function SkillsManager() {
           <button type="submit" className="admin-btn admin-btn-primary">
             {editingId ? 'Opslaan' : 'Toevoegen'}
           </button>
-          {editingId && (
-            <button type="button" className="admin-btn" onClick={() => { setForm(emptyForm); setEditingId(null) }}>
-              Annuleer
-            </button>
-          )}
         </div>
       </form>
+    )
+  }
+
+  return (
+    <section className="admin-section">
+      <h2>Skills</h2>
+
+      {skills.map((skill) => (
+        <div key={skill.id}>
+          <div className="admin-card">
+            <div className="admin-row">
+              <strong>{skill.label}: {skill.items.join(', ')}</strong>
+              <div className="admin-actions">
+                {editingId === skill.id ? (
+                  <button className="admin-btn" onClick={cancelEdit}>Annuleren</button>
+                ) : (
+                  <button className="admin-btn" onClick={() => handleEdit(skill)}>Bewerk</button>
+                )}
+                <button className="admin-btn admin-btn-danger" onClick={() => handleDelete(skill.id)}>Verwijder</button>
+              </div>
+            </div>
+          </div>
+
+          {/* Inline bewerk-formulier, direct onder deze skill-groep */}
+          {editingId === skill.id && renderForm()}
+        </div>
+      ))}
+
+      {/* 'Nieuwe skill-groep'-formulier onderaan, alleen als je niet aan het bewerken bent */}
+      {!editingId && renderForm()}
     </section>
   )
 }

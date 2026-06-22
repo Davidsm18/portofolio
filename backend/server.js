@@ -1,13 +1,15 @@
 import express from 'express'
 import cors from 'cors'
+import multer from 'multer'
+import path from 'path'
 import pool from './db.js'
 
 const app = express()
-const PORT = 3001
+const PORT = 3002
 
 // ⚠️ Verander deze twee waarden naar iets eigens
-const ADMIN_PASSWORD = 'admin123'
-const TOKEN = 'geheim-token-verander-mij'
+const ADMIN_PASSWORD = 'MijnP0rtfolio!2026'
+const TOKEN = 'dwon392nkc32njHN3nsKS38dhjIDWJ13si'
 
 app.use(cors())
 app.use(express.json())
@@ -37,6 +39,27 @@ function requireAuth(req, res, next) {
   }
 }
 
+// --- AFBEELDINGEN UPLOADEN ---
+
+// Waar en onder welke naam de bestanden opgeslagen worden
+const storage = multer.diskStorage({
+  destination: 'uploads/',
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname)
+    cb(null, `${Date.now()}-${Math.round(Math.random() * 1e6)}${ext}`)
+  },
+})
+const upload = multer({ storage })
+
+// Geüploade bestanden openbaar beschikbaar maken op /uploads/...
+app.use('/uploads', express.static('uploads'))
+
+// Eén afbeelding ontvangen ('image') en de openbare URL teruggeven
+app.post('/api/upload', requireAuth, upload.single('image'), (req, res) => {
+  const url = `http://localhost:${PORT}/uploads/${req.file.filename}`
+  res.json({ url })
+})
+
 // --- PROJECTS ---
 
 app.get('/api/projects', async (req, res) => {
@@ -50,19 +73,19 @@ app.get('/api/projects', async (req, res) => {
 })
 
 app.post('/api/projects', requireAuth, async (req, res) => {
-  const { title, description, tech, link, featured } = req.body
+  const { title, description, tech, link, featured, image } = req.body
   const [result] = await pool.query(
-    'INSERT INTO projects (title, description, tech, link, featured) VALUES (?, ?, ?, ?, ?)',
-    [title, description, JSON.stringify(tech || []), link || '#', featured ? 1 : 0]
+    'INSERT INTO projects (title, description, tech, link, featured, image) VALUES (?, ?, ?, ?, ?, ?)',
+    [title, description, JSON.stringify(tech || []), link || '#', featured ? 1 : 0, image || null]
   )
   res.status(201).json({ id: result.insertId })
 })
 
 app.put('/api/projects/:id', requireAuth, async (req, res) => {
-  const { title, description, tech, link, featured } = req.body
+  const { title, description, tech, link, featured, image } = req.body
   await pool.query(
-    'UPDATE projects SET title = ?, description = ?, tech = ?, link = ?, featured = ? WHERE id = ?',
-    [title, description, JSON.stringify(tech || []), link || '#', featured ? 1 : 0, req.params.id]
+    'UPDATE projects SET title = ?, description = ?, tech = ?, link = ?, featured = ?, image = ? WHERE id = ?',
+    [title, description, JSON.stringify(tech || []), link || '#', featured ? 1 : 0, image || null, req.params.id]
   )
   res.json({ ok: true })
 })

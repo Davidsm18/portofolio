@@ -6,7 +6,7 @@ function Projects() {
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/projects')
+    fetch('http://localhost:3002/api/projects')
       .then((res) => res.json())
       .then((data) => setProjects(data))
       .catch((err) => console.error('Kon projecten niet laden:', err))

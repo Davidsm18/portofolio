@@ -50,7 +50,7 @@ function Contact() {
 
         <div className="field">
           <label htmlFor="bericht">Bericht</label>
-          <textarea id="bericht" rows="4" placeholder="Vertel me over je project..."
+          <textarea id="bericht" rows="4" placeholder="Vertel me over je plannen..."
             value={bericht} onChange={(e) => setBericht(e.target.value)} required></textarea>
         </div>
 

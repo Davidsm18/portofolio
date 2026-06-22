@@ -1,3 +1,8 @@
+/* Hero-sectie tegen de navbar aan (geen ruimte erboven) */
+#home {
+  padding-top: 0;
+}
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -38,7 +43,7 @@
   border: 1px solid var(--border);
   border-radius: 9999px;
   background-color: rgba(255, 255, 255, 0.03);
-  margin-bottom: 32px;
+ 
   font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.05em;
@@ -71,11 +76,10 @@
 }
 
 .hero-subtitle {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--text-muted);
   max-width: 520px;
-  margin-bottom: 32px;
-  padding-bottom: 100px;
+  padding-bottom: 30px;
 }
 
 .hero-actions {
@@ -84,11 +88,19 @@
   flex-wrap: wrap;
 }
 
+/* Terminal onder de knoppen, links uitgelijnd met de tekst */
+.hero-terminal {
+  margin-top: 32px;
+}
+
 .hero-image {
   position: relative;
   flex-shrink: 0;
   display: flex;
   justify-content: center;
+  max-height: 750px;
+  max-width: 500px;
+  margin-top: 50px;
 }
 
 .hero-image::before {
