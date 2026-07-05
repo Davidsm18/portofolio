@@ -1,0 +1,28 @@
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  /* De gloed op de muis centreren i.p.v. linksboven */
+  margin: -250px 0 0 -250px;
+  border-radius: 50%;
+  pointer-events: none; /* nooit klikken blokkeren */
+  z-index: 9999;
+  /* Paarse gloed in de accentkleur van de site */
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.18) 0%,
+    rgba(139, 92, 246, 0) 65%
+  );
+  /* 'screen' laat de gloed licht toevoegen over de inhoud, zonder tekst te bedekken */
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+/* Geen muis (telefoon/tablet) of gebruiker wil geen beweging → gloed uit */
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .cursor-glow {
+    display: none;
+  }
+}

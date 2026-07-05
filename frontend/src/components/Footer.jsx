@@ -9,11 +9,6 @@ function Footer() {
           <p className="footer-copy">© 2026 David Mateman. Gebouwd met technische precisie.</p>
         </div>
 
-        <div className="footer-social">
-          <a href="https://github.com/Feestbeest1" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
-
         <div className="footer-nav">
           <a href="#home">Home</a>
           <a href="#projecten">Projecten</a>

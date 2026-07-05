@@ -1,6 +1,6 @@
 import './ProjectCard.css'
 
-function ProjectCard({ title, description, tech, image, featured}) {
+function ProjectCard({ title, description, tech, image, featured, link}) {
     return (
         <article className={featured ? "project-card featured" : "project-card"}>
             <div className="project-media">
@@ -19,7 +19,7 @@ function ProjectCard({ title, description, tech, image, featured}) {
                     ))}
                 </div>
 
-                <a href="#" className="project-link">Bekijk project →</a>
+                <a href={link} className="project-link" target="_blank" rel="noopener noreferrer">Bekijk project →</a>
             </div>
         </article>
     )

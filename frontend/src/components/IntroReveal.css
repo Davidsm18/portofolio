@@ -1,0 +1,96 @@
+.intro-reveal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Wegvegen naar boven → site verschijnt eronder */
+.intro-reveal.leaving {
+  transform: translateY(-100%);
+}
+
+/* Zachte paarse gloed achter de naam */
+.reveal-glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  max-width: 90vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.25) 0%,
+    rgba(139, 92, 246, 0) 65%
+  );
+  animation: reveal-glow-in 1s ease both;
+}
+
+.reveal-content {
+  position: relative;
+  text-align: center;
+}
+
+/* Masker: de naam 'stijgt' erachter vandaan */
+.reveal-mask {
+  overflow: hidden;
+  padding: 6px 0;
+}
+
+.reveal-name {
+  margin: 0;
+  font-size: clamp(2.2rem, 8vw, 4.5rem);
+  font-weight: 700;
+  color: var(--text);
+  transform: translateY(110%);
+  animation: reveal-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.reveal-accent {
+  color: var(--accent);
+}
+
+/* Accentlijn die onder de naam uitgroeit */
+.reveal-line {
+  height: 3px;
+  width: 0;
+  margin: 18px auto 0;
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.7);
+  animation: reveal-line-grow 0.7s ease 0.9s both;
+}
+
+@keyframes reveal-rise {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-line-grow {
+  to {
+    width: 180px;
+  }
+}
+
+@keyframes reveal-glow-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Gebruiker wil geen beweging → intro overslaan */
+@media (prefers-reduced-motion: reduce) {
+  .intro-reveal {
+    display: none;
+  }
+}

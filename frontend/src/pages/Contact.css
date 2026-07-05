@@ -1,7 +1,6 @@
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
   align-items: start;
 }
 
@@ -41,6 +40,11 @@ a.contact-item:hover {
   background-color: var(--border);
   color: var(--accent);
   flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .contact-form {

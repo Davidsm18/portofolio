@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { authHeaders } from '../auth'
 
-const API = 'http://localhost:3002/api'
+const API = '/api'
 const emptyForm = { label: '', items: '' }
 
 function SkillsManager() {

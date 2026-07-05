@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
 import multer from 'multer'
@@ -5,11 +6,11 @@ import path from 'path'
 import pool from './db.js'
 
 const app = express()
-const PORT = 3002
+const PORT = process.env.PORT || 3003
 
-// ⚠️ Verander deze twee waarden naar iets eigens
-const ADMIN_PASSWORD = 'MijnP0rtfolio!2026'
-const TOKEN = 'dwon392nkc32njHN3nsKS38dhjIDWJ13si'
+// Geheimen komen nu uit het .env-bestand (staat niet op GitHub)
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD
+const TOKEN = process.env.TOKEN
 
 app.use(cors())
 app.use(express.json())
@@ -56,7 +57,7 @@ app.use('/uploads', express.static('uploads'))
 
 // Eén afbeelding ontvangen ('image') en de openbare URL teruggeven
 app.post('/api/upload', requireAuth, upload.single('image'), (req, res) => {
-  const url = `http://localhost:${PORT}/uploads/${req.file.filename}`
+  const url = `/uploads/${req.file.filename}`
   res.json({ url })
 })
 

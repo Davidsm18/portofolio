@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { authHeaders } from '../auth'
 
-const API = 'http://localhost:3002/api'
+const API = '/api'
 
 function AboutManager() {
   const [form, setForm] = useState({ heading: '', intro: '' })
