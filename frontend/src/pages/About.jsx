@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './About.css'
+import aboutFoto from '../assets/aboutfoto.jpg'
 
 function About() {
   const [about, setAbout] = useState({ heading: '', intro: '' })
@@ -19,7 +20,9 @@ function About() {
 
   return (
     <div className="container about-inner">
-      <div className="about-image"></div>
+      <div className="about-image">
+        <img alt="about-foto" src={aboutFoto} />
+      </div>
 
       <div className="about-text">
         <h2 className="section-title">{about.heading}</h2>

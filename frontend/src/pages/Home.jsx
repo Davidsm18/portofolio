@@ -1,9 +1,12 @@
 import './Home.css'
 import heroFoto from '../assets/hero.png'
 import Terminal from '../components/Terminal'
+import { useLanguage } from '../context/LanguageContext'
 
 
 function Home() {
+    const { t } = useLanguage()
+
     return (
         <div className="hero">
             <div className="hero-glow"></div>
@@ -12,16 +15,16 @@ function Home() {
                 <div className="hero-text">
 
                     <h1 className="hero-title">
-                        Ik ben <span className="accent">David</span>, ICT-student &amp; ondernemer
+                        {t.hero.titlePre}<span className="accent">David</span>{t.hero.titlePost}
                     </h1>
 
                     <p className="hero-subtitle">
-                        School is voor mij de startbaan, niet de bestemming. Ik gebruik elke skill die ik leer meteen om m'n eigen bedrijven groter te maken. Tegen de tijd dat ik klaar ben met studeren, draaien ze al jaren.
+                        {t.hero.subtitle}
                     </p>
 
                     <div className="hero-actions">
-                        <a href="#projecten" className="btn btn-primary">Bekijk projecten</a>
-                        <a href="#about" className="btn btn-secondary">Meer over mij</a>
+                        <a href="#projecten" className="btn btn-primary">{t.hero.projectsBtn}</a>
+                        <a href="#about" className="btn btn-secondary">{t.hero.aboutBtn}</a>
                     </div>
                     <div className="hero-terminal">
                         <Terminal />

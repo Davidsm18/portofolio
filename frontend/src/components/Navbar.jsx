@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import './Navbar.css'
+import { useLanguage } from '../context/LanguageContext'
 
 function Navbar() {
   const [open, setOpen] = useState(false)
+  const { lang, toggleLang, t } = useLanguage()
 
   return (
     <nav className="navbar">
@@ -21,10 +23,15 @@ function Navbar() {
               ☰
             </button>
         <div className={open ? "nav-links open" : "nav-links"}>
-          <a href="#home" onClick={() => setOpen(false)}>Home</a>
-          <a href="#projecten" onClick={() => setOpen(false)}>Projecten</a>
-          <a href="#about" onClick={() => setOpen(false)}>About</a>
-          <a className="contact-link" href="#contact" onClick={() => setOpen(false)}>Contact</a>
+          <button className="lang-switch" onClick={toggleLang} aria-label="Taal wisselen / Switch language">
+            <span className={lang === 'nl' ? 'lang-active' : ''}>NL</span>
+            <span className={lang === 'en' ? 'lang-active' : ''}>EN</span>
+          </button>
+
+          <a href="#home" onClick={() => setOpen(false)}>{t.nav.home}</a>
+          <a href="#projecten" onClick={() => setOpen(false)}>{t.nav.projects}</a>
+          <a href="#about" onClick={() => setOpen(false)}>{t.nav.about}</a>
+          <a className="contact-link" href="#contact" onClick={() => setOpen(false)}>{t.nav.contact}</a>
         </div>
       </div>
     </nav>

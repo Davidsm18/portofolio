@@ -1,7 +1,26 @@
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 600px;
+}
+
+/* Desktop: twee kolommen. Kop + tekst links, formulier rechts. */
+@media (min-width: 861px) {
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "heading form"
+      "info    form";
+    align-items: start;
+    column-gap: 48px;
+    row-gap: 16px;
+    max-width: none;
+  }
+  .contact-grid .section-title { grid-area: heading; }
+  .contact-grid .contact-info { grid-area: info; }
+  .contact-grid .contact-form { grid-area: form; }
 }
 
 .contact-intro {
@@ -96,9 +115,25 @@ a.contact-item:hover {
   width: 100%;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 640px) {
   .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
+  }
+  .contact-form {
+    padding: 20px;
+    gap: 16px;
+  }
+  .contact-intro {
+    margin-bottom: 24px;
+  }
+  .contact-details {
+    gap: 12px;
+  }
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .contact-item {
+    font-size: 0.95rem;
   }
 }

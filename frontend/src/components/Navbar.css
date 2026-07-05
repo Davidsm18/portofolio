@@ -103,6 +103,32 @@
     width: 100%;
 }
 
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    background: none;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.lang-switch span {
+    padding: 3px 9px;
+    border-radius: 9999px;
+    color: var(--text-muted);
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.lang-switch .lang-active {
+    background-color: var(--accent);
+    color: #fff;
+}
+
 .nav-toggle {
     display: none;
     background: none;

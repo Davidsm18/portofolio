@@ -148,6 +148,7 @@
     height: 220px;
     object-fit: cover;
     border-radius: 9999px;
+    object-position: center 15%;
   }
   .hero-image::before {
     width: 260px;
