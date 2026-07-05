@@ -42,7 +42,7 @@ function AboutManager() {
         </div>
         <div className="admin-actions">
           <button type="submit" className="admin-btn admin-btn-primary">Opslaan</button>
-          {saved && <span style={{ color: 'var(--accent)' }}>Opgeslagen ✓</span>}
+          {saved && <span className="admin-saved">Opgeslagen ✓</span>}
         </div>
       </form>
     </section>

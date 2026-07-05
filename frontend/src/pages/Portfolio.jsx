@@ -12,11 +12,15 @@ function Portfolio() {
     <div className="App">
       <IntroReveal />
       <CursorGlow />
-      <Navbar />
-      <section id="home"><Home /></section>
-      <section id="projecten"><Projects /></section>
-      <section id="about"><About /></section>
-      <section id="contact"><Contact /></section>
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <section id="home"><Home /></section>
+        <section id="projecten"><Projects /></section>
+        <section id="about"><About /></section>
+        <section id="contact"><Contact /></section>
+      </main>
       <Footer />
     </div>
   )

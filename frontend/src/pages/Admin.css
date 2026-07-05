@@ -137,3 +137,13 @@
   margin-bottom: 14px;
   color: var(--text-muted);
 }
+
+.admin-saved {
+  color: var(--accent);
+}
+
+.admin-image-preview {
+  margin-top: 8px;
+  max-width: 160px;
+  border-radius: 8px;
+}

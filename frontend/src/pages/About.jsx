@@ -21,7 +21,7 @@ function About() {
   return (
     <div className="container about-inner">
       <div className="about-image">
-        <img alt="about-foto" src={aboutFoto} />
+        <img alt="Portretfoto van David Mateman" src={aboutFoto} />
       </div>
 
       <div className="about-text">

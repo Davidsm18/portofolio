@@ -120,7 +120,7 @@ function ProjectsManager() {
           <label>Afbeelding</label>
           <input type="file" accept="image/*" onChange={handleFile} />
           {form.image && (
-            <img src={form.image} alt="" style={{ marginTop: 8, maxWidth: 160, borderRadius: 8 }} />
+            <img src={form.image} alt="Voorbeeld van de gekozen projectafbeelding" className="admin-image-preview" />
           )}
         </div>
 
